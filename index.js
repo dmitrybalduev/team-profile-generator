@@ -133,22 +133,22 @@ function generateCardText(member){
         cardText += `<h5 class="card-title">${member.name}</h5>
         <h5 class="card-title">Manager</h5>
         <p class="card-text">ID: ${member.id}</p>
-        <p class="card-text">Email: ${member.email}</p>
+        <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
         <p class="card-text">Office Number: ${member.officeNumber}</p>`
     } else if(member instanceof Intern){
         console.log(member + " is type of Intern");
         cardText += `<h5 class="card-title">${member.name}</h5>
         <h5 class="card-title">Intern</h5>
         <p class="card-text">ID: ${member.id}</p>
-        <p class="card-text">Email: ${member.email}</p>
+        <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
         <p class="card-text">School: ${member.school}</p>`
     } else{
         console.log(member + " is type of Engineer");
         cardText += `<h5 class="card-title">${member.name}</h5>
         <h5 class="card-title">Engineer</h5>
         <p class="card-text">ID: ${member.id}</p>
-        <p class="card-text">Email: ${member.email}</p>
-        <p class="card-text">Github: ${member.github}</p>`
+        <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
+        <p>Github: <a href="github.com/${member.github}" class="card-text">${member.github}</a></p>`
     }
 
     cardText += `</div>
