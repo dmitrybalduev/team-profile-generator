@@ -114,5 +114,25 @@ function addIntern() {
 };
 
 function renderTeam (){
-    console.log(teamArr);
+    console.log(teamArr) ;
+    for(let i = 0; i < teamArr.length; i++){
+        let cardText = `<div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>`;
+        if(teamArr[i] instanceof Manager){
+            console.log(teamArr[i] + " is type of Manager");
+            cardText += `<h5 class="card-title">${teamArr[i].name}</h5>
+            <h5 class="card-title">Manager</h5>
+            <p class="card-text">ID: ${teamArr[i].id}</p>
+            <p class="card-text">Email: ${teamArr[i].email}</p>
+            <p class="card-text">Office Number: ${teamArr[i].officeNumber}</p>`
+        } else if(teamArr[i] instanceof Intern){
+            console.log(teamArr[i] + " is type of Intern");
+        } else{
+            console.log(teamArr[i] + " is type of Engineer");
+        }
+    }
 }
