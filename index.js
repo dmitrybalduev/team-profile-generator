@@ -80,7 +80,6 @@ function addEngineer() {
             message: "Please enter engineer's Github username?",
             name: "github"
         }
-
     ]).then(function (data) {
         let engineer = new Engineer(data.name, data.id, data.email, data.github);
         teamArr.push(engineer);
