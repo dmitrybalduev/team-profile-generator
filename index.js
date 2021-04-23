@@ -122,27 +122,43 @@ function renderTeam (){
 
 function generateCardText(member){
     let cardText = `<div class="col">
-    <div class="card h-100">
-    <div class="card-body">`
+    <div class="card h-100 bg-info mb-3">
+    <div class="card-header bg-transparent">
+    
+    
+    `
 
     if(member instanceof Manager){
         console.log(member + " is type of Manager");
         cardText += `<h5 class="card-title">${member.name}</h5>
-        <h5 class="card-title">Manager</h5>
+        <div style="display: inline-flex;">
+        <i class="far fa-angry"></i>
+        <h5 class="card-title" style="margin-left: 5px;">Manager</h5>
+        </div>
+        </div>
+        <div class="card-body" style="background-color: white;">
         <p class="card-text">ID: ${member.id}</p>
         <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
         <p class="card-text">Office Number: ${member.officeNumber}</p>`
     } else if(member instanceof Intern){
         console.log(member + " is type of Intern");
         cardText += `<h5 class="card-title">${member.name}</h5>
-        <h5 class="card-title">Intern</h5>
+        <div style="display: inline-flex;">
+        <i class="fas fa-book-open"></i><h5 class="card-title" style="margin-left: 5px";>Intern</h5>
+        </div>
+        </div>
+        <div class="card-body" style="background-color: white;">
         <p class="card-text">ID: ${member.id}</p>
         <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
         <p class="card-text">School: ${member.school}</p>`
     } else{
         console.log(member + " is type of Engineer");
         cardText += `<h5 class="card-title">${member.name}</h5>
-        <h5 class="card-title">Engineer</h5>
+        <div style="display: inline-flex;">
+        <i class="fas fa-bomb"></i><h5 class="card-title" style="margin-left: 5px";>Engineer</h5>
+        </div>
+        </div>
+        <div class="card-body" style="background-color: white;">
         <p class="card-text">ID: ${member.id}</p>
         <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
         <p>Github: <a href="github.com/${member.github}" class="card-text">${member.github}</a></p>`
@@ -162,6 +178,10 @@ function getHtmlStarter(){
             <meta charset="UTF-8" />
             <title>Team Profile</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+            <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"> 
             <style>
                 .bg-secondary {align-items: center;
                     width: 100%;
