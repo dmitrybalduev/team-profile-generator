@@ -27,7 +27,13 @@ function addManager() {
         {
             type: "number",
             message: "Please enter manager's office number",
-            name: "officeNumber"
+            name: "officeNumber",
+            validate: (answer) => {
+                if (isNaN(answer)) {
+                  return "please enter a number";
+                }
+                return true;
+              }
         }
     ]).then(function (data) {
             const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
@@ -161,7 +167,7 @@ function generateCardText(member){
         <div class="card-body" style="background-color: white;">
         <p class="card-text">ID: ${member.id}</p>
         <p>Email: <a href = "mailto: ${member.email}" class="card-text">${member.email}</a></p>
-        <p>Github: <a href="github.com/${member.github}" class="card-text">${member.github}</a></p>`
+        <p>Github: <a href="https://github.com/${member.github}" class="card-text">${member.github}</a></p>`
     }
 
     cardText += `</div>
