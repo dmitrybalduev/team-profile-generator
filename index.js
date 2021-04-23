@@ -24,10 +24,6 @@ function addManager() {
             message: "Please enter manager's email",
             name: "email"
         },
-        // {
-        //     message: "Please enter manager's office number",
-        //     name: "officeNumber"
-        // }
         {
             type: "number",
             message: "Please enter manager's office number",
@@ -118,14 +114,15 @@ function renderTeam (){
     for(let i = 0; i < teamArr.length; i++){
        cards += generateCardText(teamArr[i]);
     }
-    cards += `    </body>
+    cards += ` </div>   </body>
     </html>`
     fs.writeFile('./src/index.html', `${cards}\n`, (err) =>
         err ? console.error(err) : console.log('Successfully created file!'));
 }
 
 function generateCardText(member){
-    let cardText = `<div class="card" style="width: 18rem;">
+    let cardText = `<div class="col">
+    <div class="card h-100">
     <div class="card-body">`
 
     if(member instanceof Manager){
@@ -152,6 +149,7 @@ function generateCardText(member){
     }
 
     cardText += `</div>
+    </div>
     </div>`;
 
     return cardText;
@@ -164,7 +162,16 @@ function getHtmlStarter(){
             <meta charset="UTF-8" />
             <title>Team Profile</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+            <style>
+                .bg-secondary {align-items: center;
+                    width: 100%;
+                    height: 25vh;
+                    display: flex;
+                    justify-content: center;}
+                
+            </style>
         </head>
         <body>
-            <h1 class="justify-content-center"> <span class="badge bg-secondary">Team Profile</span></h1>`
+            <h1 class="justify-content-center"> <span class="badge bg-secondary">Team Profile</span></h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4">`
 }
